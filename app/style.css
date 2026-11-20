@@ -1,0 +1,16 @@
+body { background: #14101a; color: #f0f0f5; font-family: system-ui, sans-serif; margin: 0; }
+.app { display: flex; flex-direction: row; gap: 24px; padding: 20px; box-sizing: border-box; min-height: 100vh; }
+.controls { width: 300px; display: flex; flex-direction: column; gap: 12px; background: #1f1826; padding: 16px; border-radius: 10px; box-sizing: border-box; }
+.controls h1 { font-size: 24px; margin: 0 0 4px 0; }
+.controls p { margin: 0; font-size: 13px; opacity: 0.8; }
+.controls label { display: flex; flex-direction: column; gap: 4px; font-weight: 600; font-size: 13px; }
+input[type="text"], input[type="file"], select { background: #14101a; color: #f0f0f5; border: 1px solid #33283d; padding: 6px; border-radius: 4px; font-size: 13px; }
+input[type="range"] { width: 100%; }
+button { cursor: pointer; padding: 10px; border-radius: 6px; font-weight: 600; border: none; }
+#export { background: #ff7e5f; color: #fff; }
+#fillall { background: transparent; color: #ff7e5f; border: 1px solid #ff7e5f; }
+canvas { max-width: min(68vh, 58vw); height: auto; box-shadow: 0 10px 30px rgba(0,0,0,0.5); border-radius: 4px; background: #1a0f24; }
+body.shot-cover .controls { display: none; }
+body.shot-cover { overflow: hidden; }
+body.shot-cover .app { padding: 0; gap: 0; justify-content: center; align-items: center; height: 100vh; }
+body.shot-cover canvas { max-width: 100vw; max-height: 100vh; width: 100vw; height: 100vh; box-shadow: none; border-radius: 0; }
