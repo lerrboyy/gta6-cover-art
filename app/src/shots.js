@@ -12,6 +12,7 @@ export async function runShot(shot, query, load) {
     const gradeEl = document.getElementById('grade');
     if (gradeEl) gradeEl.value = grade;
   }
+  // Fall back to the pier sample when no photo is named, so a shot never renders empty panels.
   await load(
     `samples/${query.get('photo') ?? 'pier'}.jpg`,
     query.get('caption') ?? 'Sunset Heist'
