@@ -77,9 +77,14 @@ export function drawCover(canvas, photos, caption, opts = {}) {
       const offsetX = ox[i] ?? 0;
       const offsetY = oy[i] ?? 0;
 
+      // Isolate the photo transform: without this the grade overlay below
+      // would inherit the translate/scale and land shifted down-right,
+      // which used to paint the neon tint as a hard-edged teal block.
+      ctx.save();
       ctx.translate(cx + offsetX, cy + offsetY);
       ctx.scale(z, z);
       ctx.drawImage(img, -sw / 2, -sh / 2, sw, sh);
+      ctx.restore();
     } else {
       const grad = ctx.createLinearGradient(panel.x, panel.y, panel.x, panel.y + panel.h);
       if (grade === 'neon') {

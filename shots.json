@@ -16,5 +16,11 @@
     "query": "?shot=cover&photo=pier&caption=Vice%20City&size=portrait",
     "w": 1024,
     "h": 1280
+  },
+  {
+    "name": "4-cover-neon.jpg",
+    "query": "?shot=cover&photo=pier&caption=Neon%20Nights&grade=neon&size=square",
+    "w": 1080,
+    "h": 1080
   }
 ]

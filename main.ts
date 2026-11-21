@@ -38,3 +38,14 @@ writeFileSync(
     app_path_max_bytes: 1000,
   }),
 );
+
+// Build info for this entry: a version stamp plus a tiny summary helper so the
+// build log shows what was handed in at a glance (output dir + dossier state).
+const BUILD_INFO = { name: 'vice-panels', version: '1.1.0' };
+
+function logBuildSummary(outDir: string): void {
+  const dossierReady = existsSync(join(outDir, 'dossier.json'));
+  console.log(`[${BUILD_INFO.name} v${BUILD_INFO.version}] output ready at ${outDir}; dossier.json written: ${dossierReady}`);
+}
+
+logBuildSummary(out);
