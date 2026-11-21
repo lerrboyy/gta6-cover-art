@@ -73,7 +73,8 @@ export function drawCover(canvas, photos, caption, opts = {}) {
       const sh = img.height * scale;
       const cx = panel.x + panel.w / 2;
       const cy = panel.y + panel.h / 2;
-      const z = zoom[i] ?? 1;
+      // Clamp zoom so a stray value can't flip or blow up the panel.
+      const z = Math.max(0.1, zoom[i] ?? 1);
       const offsetX = ox[i] ?? 0;
       const offsetY = oy[i] ?? 0;
 
@@ -145,8 +146,9 @@ export function drawCover(canvas, photos, caption, opts = {}) {
     const textY = band.y + band.h / 2 - 4;
     ctx.fillText(text, textX, textY);
 
-    // Accent underline bar
-    const barWidth = metrics.width;
+    // Accent underline bar, clamped to the caption width so it never
+    // overflows the band on a long caption.
+    const barWidth = Math.min(metrics.width, maxWidth);
     const barHeight = 6;
     const barX = textX - barWidth / 2;
     const barY = textY + fontSize / 2 + 6;
